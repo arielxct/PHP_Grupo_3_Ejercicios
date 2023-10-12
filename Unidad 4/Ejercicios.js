@@ -28,6 +28,8 @@ function FizzBuzz() {
 // Tenga en cuenta que el rango debe tener una diferencia mínima de 5 números 
 // enteros.
 
+//Esto todavía no lo logré entender, más tarde le busco la vuelta
+
 // function parImpar() {
 //     let number1 = parseInt(document.getElementById('number1ParImpar').value);
 //     let number2 = parseInt(document.getElementById('number2ParImpar').value);
@@ -93,6 +95,36 @@ function clearCalculator(){
 //  El promedio de las notas.
 // Tenga en cuenta que solamente las notas pueden ir del 1 al 10.
 
+//Por el momento los promedios dan mal el resultado.
+let notas = [];
+let totalAlumnos= 0;
+let totalNotas = 0;
+let aprobados = 0;
+let desaprobados = 0;
+let sumaNotas = 0;
 function studentsAverage(){
+    let nota = document.getElementById('grade').value;
+
+    if(isNaN(nota) || nota > 10 || nota < 1){
+        alert("Ingrese un valor valido");
+    }else{
+        notas.push(nota);
+        totalAlumnos++;
+    }
+    for(let i = 0; i < notas.length; i++){
+        sumaNotas += notas[i];
+        if(nota >= 4){
+            aprobados++;
+        }else{
+            desaprobados++;
+        }
+    }
+
+    console.log(totalAlumnos);
+    console.log(notas);
     
+    document.getElementById('grade').value = "";
+    document.getElementById('resultadoAprobados').innerHTML = "El total de aprobados es del: " + ((aprobados / totalAlumnos) * 100)+"%";
+    document.getElementById('resultadoDesaprobados').innerHTML = "El total de desaprobados es del: " + ((desaprobados / totalAlumnos) * 100)+"%";
+    document.getElementById('resultadoPromedio').innerHTML = "El promedio de las notas generales es de: " + ((sumaNotas / totalAlumnos)).toFixed(2)+"%";
 }

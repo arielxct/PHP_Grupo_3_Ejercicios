@@ -47,6 +47,8 @@ let horasTrabajadas = parseFloat(prompt("Ingrese la cantidad de horas trabajadas
 
 let sueldo = valorHora * horasTrabajadas;
 
+console.log("El sueldo total en el ejercicio 12 es: " + sueldo)
+
 /*
 13. Realizar un sistema para el cálculo de sueldos de una empresa. Se le solicita que
 ingrese el valor de la hora, la cantidad de horas trabajadas en el mes y los años de
@@ -61,6 +63,8 @@ let antiguedad = parseFloat(prompt("Ingrese los años de antiguedad"));
 
 let bono = (valorPorHora * antiguedad) * 0.15;
 let sueldoTotal = (valorPorHora * hsTrabajadas) + bono;
+
+console.log("El sueldo total de esta empresa es: " + sueldoTotal);
 
 /*
 14. Realizar un sistema para el cálculo de sueldo de una empresa de seguros. Se le
@@ -86,6 +90,8 @@ let bonoAntiguedad = (sueldoMensual * 0.15) * antiguedadTrabajador;
 
 
 let sueldoFinal = sueldoMensual + bonoSeguroMasCaro + bonoSegurosVendidos + bonoAntiguedad;
+
+console.log("El sueldo total en la empresa de seguros es: " + sueldoFinal);
 
 //=================================================================================
 

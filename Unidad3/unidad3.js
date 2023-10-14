@@ -6,11 +6,11 @@ si el número es cero, par o impar.
 */
 let numero1 = parseInt(prompt("Ingrese un numero"));
 if (numero1 == 0) {
-    console.log("El numero es cero");
+    alert("El numero es cero");
 } else if (numero1 % 2 == 0) {
-    console.log("El numero es par");
+    alert("El numero es par");
 } else {
-    console.log("El numero es impar");
+    alert("El numero es impar");
 }
 
 /*
@@ -19,9 +19,9 @@ si el número es múltiplo de 3.
 */
 let numero2 = parseInt(prompt("Ingrese un numero"));
 if (numero2 % 3 == 0) {
-    console.log("El numero es multiplo de 3");
+    alert("El numero es multiplo de 3");
 } else {
-    console.log("El numero no es multiplo de 3");
+    alert("El numero no es multiplo de 3");
 }
 
 /*
@@ -30,9 +30,9 @@ el valor ingresado es una vocal.
 */
 let letra = prompt("Ingrese una letra");
 if (letra == "a" || letra == "e" || letra == "i" || letra == "o" || letra == "u") {
-    console.log("La letra es una vocal");
+    alert("La letra es una vocal");
 } else {
-    console.log("La letra no es una vocal");
+    alert("La letra no es una vocal");
 }
 
 /*
@@ -49,16 +49,16 @@ let numero3 = parseInt(prompt("Ingrese el numero a evaluar"));
 
 if(numero3 >= numeroBase && numero3 <= numeroTope && numeroTope - numeroBase >= 5){
     if(numero3 % 2 == 0){
-        console.log("El numero esta dentro del rango y es par");
+        alert("El numero esta dentro del rango y es par");
     }else{
-        console.log("El numero esta dentro del rango y es impar");
+        alert("El numero esta dentro del rango y es impar");
     }
 }
 else if(numero3 < numeroBase || numero3 > numeroTope){
-    console.log("El numero a evaluar no esta dentro del rango informado");
+    alert("El numero a evaluar no esta dentro del rango informado");
 }
 else if(numeroTope - numeroBase < 5){
-    console.log("El rango debe tener una diferencia minima de 5 numeros enteros");
+    alert("El rango debe tener una diferencia minima de 5 numeros enteros");
 }
 
 /*
@@ -71,19 +71,19 @@ let operador = prompt("Ingrese el operador: +, -, *, /");
 
 switch (operador) {
     case "+":
-        console.log(numero4 + numero5);
+        alert(numero4 + numero5);
         break;
     case "-":
-        console.log(numero4 - numero5);
+        alert(numero4 - numero5);
         break;
     case "*":
-        console.log(numero4 * numero5);
+        alert(numero4 * numero5);
         break;
     case "/":
-        console.log(numero4 / numero5);
+        alert(numero4 / numero5);
         break;
     default:
-        console.log("El operador ingresado no es valido");
+        alert("El operador ingresado no es valido");
         break;
 }
 
@@ -97,13 +97,13 @@ let lado2 = parseFloat(prompt("Ingrese el segundo lado del triangulo"));
 let lado3 = parseFloat(prompt("Ingrese el tercer lado del triangulo"));
 
 if(lado1 == lado2 && lado2 == lado3){
-    console.log("El triangulo es equilatero");
+    alert("El triangulo es equilatero");
 }
 else if(lado1 == lado2 || lado2 == lado3 || lado1 == lado3){
-    console.log("El triangulo es isosceles");
+    alert("El triangulo es isosceles");
 }
 else{
-    console.log("El triangulo es escaleno");
+    alert("El triangulo es escaleno");
 }
 
 /*
@@ -132,21 +132,21 @@ switch (categoria) {
         if(horasExtras > 20){
             bono = 500;
         }
-        console.log("El sueldo del empleado es: $" + (sueldo + bono));
+        alert("El sueldo del empleado es: $" + (sueldo + bono));
         break;
     case 2:
         sueldo = 3000;
-        console.log("El sueldo del empleado es: $" + sueldo);
+        alert("El sueldo del empleado es: $" + sueldo);
         break;
     case 3:
         sueldo = 4000;
         if(horasExtras > 30){
             bono = 1000;
         }
-        console.log("El sueldo del empleado es: $" + (sueldo + bono));
+        alert("El sueldo del empleado es: $" + (sueldo + bono));
         break;
     default:
-        console.log("La categoria ingresada no es valida");
+        alert("La categoria ingresada no es valida");
         break;
 }
 

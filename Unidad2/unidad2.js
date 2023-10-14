@@ -9,7 +9,7 @@ del usuario.
 
 let nombre = prompt("Ingrese su nombre");
 let apellido = prompt("Ingrese su apellido");
-console.log("Bienvenido " + nombre + " " + apellido + "!")
+alert("Bienvenido " + nombre + " " + apellido + "!")
 /*
 10. Se le solicita al usuario que ingrese el diámetro de un círculo. Realice un programa
 para calcular e informar el perímetro y el área del círculo. Se considerará para este
@@ -21,7 +21,7 @@ let radio = diametro / 2;
 let perimetro = radio * PI * 2;
 let area = PI * (radio * radio);
 
-console.log("El perimetro del circulo es: " + perimetro + " y su area es: " + area);
+alert("El perimetro del circulo es: " + perimetro + " y su area es: " + area);
 
 /*
 11. Se le solicita al usuario que ingrese 4 números. Realice un programa para calcular e
@@ -35,7 +35,7 @@ let numero4 = parseFloat(prompt("Ingrese el cuarto numero"));
 let suma = numero1 + numero2 + numero3 + numero4;
 let promedio = suma / 4;
 
-console.log("La suma de los numeros es: " + suma + " y el promedio es: " + promedio);
+alert("La suma de los numeros es: " + suma + " y el promedio es: " + promedio);
 
 /*
 12. Realizar un sistema para el cálculo de sueldos de una empresa. Se le solicita que
@@ -47,7 +47,7 @@ let horasTrabajadas = parseFloat(prompt("Ingrese la cantidad de horas trabajadas
 
 let sueldo = valorHora * horasTrabajadas;
 
-console.log("El sueldo total en el ejercicio 12 es: " + sueldo)
+alert("El sueldo total en el ejercicio 12 es: " + sueldo)
 
 /*
 13. Realizar un sistema para el cálculo de sueldos de una empresa. Se le solicita que
@@ -64,7 +64,7 @@ let antiguedad = parseFloat(prompt("Ingrese los años de antiguedad"));
 let bono = (valorPorHora * antiguedad) * 0.15;
 let sueldoTotal = (valorPorHora * hsTrabajadas) + bono;
 
-console.log("El sueldo total de esta empresa es: " + sueldoTotal);
+alert("El sueldo total de esta empresa es: " + sueldoTotal);
 
 /*
 14. Realizar un sistema para el cálculo de sueldo de una empresa de seguros. Se le
@@ -91,7 +91,7 @@ let bonoAntiguedad = (sueldoMensual * 0.15) * antiguedadTrabajador;
 
 let sueldoFinal = sueldoMensual + bonoSeguroMasCaro + bonoSegurosVendidos + bonoAntiguedad;
 
-console.log("El sueldo total en la empresa de seguros es: " + sueldoFinal);
+alert("El sueldo total en la empresa de seguros es: " + sueldoFinal);
 
 //=================================================================================
 

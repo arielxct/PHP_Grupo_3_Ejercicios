@@ -5,9 +5,9 @@ Unidad 3
 si el número es cero, par o impar.
 */
 let numero1 = parseInt(prompt("Ingrese un numero"));
-if (numero == 0) {
+if (numero1 == 0) {
     console.log("El numero es cero");
-} else if (numero % 2 == 0) {
+} else if (numero1 % 2 == 0) {
     console.log("El numero es par");
 } else {
     console.log("El numero es impar");
@@ -132,15 +132,18 @@ switch (categoria) {
         if(horasExtras > 20){
             bono = 500;
         }
+        console.log("El sueldo del empleado es: $" + (sueldo + bono));
         break;
     case 2:
         sueldo = 3000;
+        console.log("El sueldo del empleado es: $" + sueldo);
         break;
     case 3:
         sueldo = 4000;
         if(horasExtras > 30){
             bono = 1000;
         }
+        console.log("El sueldo del empleado es: $" + (sueldo + bono));
         break;
     default:
         console.log("La categoria ingresada no es valida");

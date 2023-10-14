@@ -28,23 +28,27 @@ function FizzBuzz() {
 // Tenga en cuenta que el rango debe tener una diferencia mínima de 5 números 
 // enteros.
 
-//Esto todavía no lo logré entender, más tarde le busco la vuelta
 
-// function parImpar() {
-//     let number1 = parseInt(document.getElementById('number1ParImpar').value);
-//     let number2 = parseInt(document.getElementById('number2ParImpar').value);
-//     let number3 = parseInt(document.getElementById('number3ParImpar').value);
+function parImpar() {
+    let number1 = parseInt(document.getElementById('number1ParImpar').value);
+    let number2 = parseInt(document.getElementById('number2ParImpar').value);
+    let number3 = parseInt(document.getElementById('number3ParImpar').value);
 
-//     let resultado = " ";
-//     if (number1 - number2 < 5) { //Validamos que el principio y final del rango ingresado, tengan 5 numeros enteros de diferencia.
-//         resultado += "El rango está mal, recuerda que debe haber una diferencia de 5 numeros entre el princio y fin."
-//     }else{
-//         for (let i = 0; i <= number3; i++) {
-//     }
-//     console.log(resultado)
-//     document.getElementById('resultParImpar').innerHTML = resultado;
-//     }
-// }
+    let resultado = "";
+    if(number3 >= number1 && number3 <= number2 && number2 - number1 >= 5){
+        if(number3 % 2 == 0){
+            resultado="El numero esta dentro del rango y es par";
+        }else{
+            resultado="El numero esta dentro del rango y es impar";
+        }
+    }else if(number3 < number1 || number3 > number2){
+        resultado="El numero a evaluar no esta dentro del rango informado";
+    }else if(number2 - number1 < 5){
+        resultado="El rango debe tener una diferencia minima de 5 numeros enteros";
+    }
+    console.log(resultado)
+    document.getElementById('resultParImpar').innerHTML = resultado;
+}
 
 // 24. Se le solicita al usuario que ingrese dos números y un operador (+, -, *, /). Realice 
 // un programa para calcular e informar cada operación deseada entre los dos números. 
@@ -95,36 +99,99 @@ function clearCalculator(){
 //  El promedio de las notas.
 // Tenga en cuenta que solamente las notas pueden ir del 1 al 10.
 
-//Por el momento los promedios dan mal el resultado.
-let notas = [];
-let totalAlumnos= 0;
-let totalNotas = 0;
-let aprobados = 0;
-let desaprobados = 0;
-let sumaNotas = 0;
-function studentsAverage(){
-    let nota = document.getElementById('grade').value;
 
-    if(isNaN(nota) || nota > 10 || nota < 1){
-        alert("Ingrese un valor valido");
-    }else{
-        notas.push(nota);
-        totalAlumnos++;
-    }
-    for(let i = 0; i < notas.length; i++){
-        sumaNotas += notas[i];
-        if(nota >= 4){
-            aprobados++;
+function studentsAverage(){
+    let totalAlumnos= 0;
+    let aprobados = 0;
+    let desaprobados = 0;
+    let sumaNotas = 0;
+
+
+    let nota = 0;
+    while(nota !== 99){
+        nota = parseInt(prompt("Ingrese la nota (o -1 para finalizar):"));
+        if (nota === -1) {
+            break; // Salir del bucle si se ingresa -1
+        }
+        //Valida las notas
+        if(isNaN(nota) || nota > 10 || nota < 1){
+            alert("Ingrese un valor valido");
         }else{
-            desaprobados++;
+            //Si son validas, se meten al array, incrementa un alumno y valida la nota.
+            totalAlumnos++;
+            if (nota >= 4) {
+                aprobados++;
+            } else {
+                desaprobados++;
+            }
+            //Para el promedio, se tienen que ir acumulando las notas.
+                sumaNotas += nota;
         }
     }
+    document.getElementById('resultadoAprobados').innerHTML = "El total de aprobados es del: " + ((aprobados / totalAlumnos) * 100).toFixed(2)+"%";
+    document.getElementById('resultadoDesaprobados').innerHTML = "El total de desaprobados es del: " + ((desaprobados / totalAlumnos) * 100).toFixed(2)+"%";
+    document.getElementById('resultadoPromedio').innerHTML = "El promedio de las notas generales es de: " + ((sumaNotas / totalAlumnos));
+}
 
-    console.log(totalAlumnos);
-    console.log(notas);
+// 26. Se le solicita al usuario que ingrese una cantidad desconocida de números. Realice 
+// un programa para calcular e informar:
+// a. La sumatoria de los valores ingresados.
+// b. El menor valor ingresado.
+// c. El mayor valor ingresado
+let numbers = [];
+function cargarNumerosSumatoria(){
+    let number = parseInt(document.getElementById('numberInput').value);
+    numbers.push(number);
+    alert("Valor ingresado con exito.")
+    document.getElementById('numberInput').value = '';
+}
+
+function sumatoria(){
+    let sum = 0;
+    let biggest = -Infinity;
+    let smallest = Infinity;
     
-    document.getElementById('grade').value = "";
-    document.getElementById('resultadoAprobados').innerHTML = "El total de aprobados es del: " + ((aprobados / totalAlumnos) * 100)+"%";
-    document.getElementById('resultadoDesaprobados').innerHTML = "El total de desaprobados es del: " + ((desaprobados / totalAlumnos) * 100)+"%";
-    document.getElementById('resultadoPromedio').innerHTML = "El promedio de las notas generales es de: " + ((sumaNotas / totalAlumnos)).toFixed(2)+"%";
+    for(let i = 0; i < numbers.length; i++){
+        sum += numbers[i];
+        if(numbers[i] < smallest){
+            smallest = numbers[i];
+        }
+        if(numbers[i] > biggest){
+            biggest = numbers[i];
+        }
+    }
+    document.getElementById("resultadoSum").innerHTML = "Sumatoria de valores ingresados: " + sum
+    document.getElementById("resultadoSumSmallest").innerHTML = "Menor valor ingresado: " + smallest
+    document.getElementById("resultadoSumBiggest").innerHTML = "Mayor valor ingresado: " + biggest
+}
+
+
+
+// 27. Como resultado de una encuesta se recogen los siguientes datos: sexo (H: Hombre, 
+//     M: Mujer), edad (en años) y altura (en centímetros). Realice un programa para calcular 
+//     e informar:
+//     a. El porcentaje de mujeres mayores a 25 años.
+//      b. El porcentaje de hombres menores de 18 años.
+//      c. El promedio de edad de las mujeres.
+//      d. El promedio de altura de los hombres.
+//      e. La menor edad ingresada.
+//      f. La mayor altura ingresad
+
+function encuesta(){
+    let sexo = "";
+    let edad = 0;
+    let mujeresMayores = 0;
+    let hombresMenores = 0;
+    let totalMujeres = 0;
+    let totalHombres = 0;
+    let menorEdad = -1;
+    let menorAltura = -1;
+    let altura = 0;
+
+    if(sexo != "M" || sexo != "H"){
+        alert("Ingrese un genero correcto - H : Hombre o M : Mujer");
+    }else{
+        
+    }
+    
 }

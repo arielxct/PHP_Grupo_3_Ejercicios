@@ -61,14 +61,24 @@
     </section>
 
     <section>
-        <h1>Ejercicio 27</h1>
-        <h2>Ingrese numeros</h2>
-        <input type="number" id="numberInput">
-        <button onclick="cargarNumerosSumatoria()">Agregar Número</button>
-        <button onclick="sumatoria()">Calcular Sumatoria</button>
-        <p id="resultadoSum"></p>
-        <p id="resultadoSumSmallest"></p>
-        <p id="resultadoSumBiggest"></p>
+        <h2>Ingrese los datos de la persona:</h2>
+        
+            <label for="sexoInput">Sexo (H: Hombre, M: Mujer):</label>
+            <input type="text" id="sexoInput">
+            <label for="edadInput">Edad:</label>
+            <input type="number" id="edadInput">
+            <label for="alturaInput">Altura en centímetros:</label>
+            <input type="number" id="alturaInput">
+
+            <button onclick="cargarPersonas()">Cargar Personas</button>
+            <button onclick="procesarEncuesta()">Procesar Encuesta</button>
+
+            <p>La cantidad de mujeres mayores a 25 años es: <span id="porcentajeMujeresMayores"></span></p>
+            <p>La cantidad de hombres menores de 18 años es: <span id="porcentajeHombresMenores"></span></p>
+            <p>El promedio de edad de las mujeres es: <span id="promedioEdadMujeres"></span></p>
+            <p>El promedio de altura de los hombres es: <span id="promedioAlturaHombres"></span></p>
+            <p>La menor edad ingresada es: <span id="menorEdad"></span></p>
+            <p>La mayor altura ingresada es: <span id="mayorAltura"></span></p>
     </section>
 </body>
 

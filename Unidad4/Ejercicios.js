@@ -176,22 +176,77 @@ function sumatoria(){
 //      d. El promedio de altura de los hombres.
 //      e. La menor edad ingresada.
 //      f. La mayor altura ingresad
+let personas = [[]];
 
-function encuesta(){
-    let sexo = "";
-    let edad = 0;
+function cargarPersonas(){
+    let sexo = prompt("Ingrese el sexo (H: Hombre, M: Mujer):").toUpperCase;
+
+    if(sexo != "M" || sexo != "H"){
+        alert("Ingrese el sexo correcto - H : Hombre o M : Mujer");
+    }
+    let edad = parseInt(prompt("Ingrese la edad:"));
+    let altura = parseInt(prompt("Ingrese la altura en centímetros:"));
+
+    let persona = [sexo, edad, altura];
+
+    personas.push(persona);
+
+}
+function procesarEncuesta(){
     let mujeresMayores = 0;
     let hombresMenores = 0;
     let totalMujeres = 0;
+    let totalEdadMujeres = 0;
     let totalHombres = 0;
-    let menorEdad = -1;
-    let menorAltura = -1;
+    let menorEdad = 100;
+    let mayorAltura = -1;
+    let totalAlturaHombres = 0;
+
+    let persona = [];
+    let sexo = "";
+    let edad = 0;
     let altura = 0;
 
-    if(sexo != "M" || sexo != "H"){
-        alert("Ingrese un genero correcto - H : Hombre o M : Mujer");
-    }else{
-        
+
+
+    for(let i = 0; i < personas.length; i++){
+        persona = personas[i];
+        sexo = persona[0];
+        edad = persona[1];
+        altura = persona[2];
+
+        if(sexo == "M"){
+            totalMujeres++;
+            totalEdadMujeres += edad;
+            if(edad > 25){
+                mujeresMayores++;
+            }
+        }
+        if(sexo == "H"){
+            totalHombres++;
+            totalAlturaHombres += altura;
+        }
+        if(edad < 18){
+            hombresMenores++
+        }
+        //La menor edad registrada.
+        if(menorEdad > edad){
+            menorEdad = edad;
+        }
+        //La mayor altura registrada.
+        if(altura > mayorAltura){
+            mayorAltura = altura;
+        }
     }
-    
+    let porcentajeMujeresMayores = ((mujeresMayores / totalMujeres) * 100).toFixed(2);
+    let porcentajeHombresMenores = ((hombresMenores / totalHombres) * 100).toFixed(2);
+    let promedioEdadMujeres = (totalEdadMujeres / totalMujeres);
+    let promedioAlturaHombres = (totalAlturaHombres / totalHombres);
+
+    console.log("La cantidad de mujeres mayores a 25 años es: " + porcentajeMujeresMayores + "%");
+    console.log("La cantidad de hombres menores de 18 años es: " + porcentajeHombresMenores + "%");
+    console.log("El promedio de edad de las mujeres es: " + promedioEdadMujeres);
+    console.log("El promedio de altura de los hombres es: " + promedioAlturaHombres);
+    console.log("La menor edad ingresada es: " + menorEdad);
+    console.log("La mayor altura ingresada es: " + mayorAltura);
 }

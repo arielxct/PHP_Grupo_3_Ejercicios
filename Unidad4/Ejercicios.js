@@ -180,8 +180,8 @@ let personas = [[]];
 
 function cargarPersonas(){
     let persona = [];
-    let sexo = document.getElementById("sexoInput").value.toUpperCase();
-    
+    let sexo = document.getElementById("sexoInput").value.toUpperCase().charAt(0);
+
     console.log(sexo);
 
     //Solucionado el condicional, resulta que antes con el operador || o " o "
@@ -189,13 +189,18 @@ function cargarPersonas(){
     //el programa finalizaba ahí, solo leyendo el input de sexo y nada más.
     //Ahora con && o " Y ", se valida si sexo es diferente a M o H, corta la ejecución.
 
-    if(sexo.toUpperCase() !== "M" && sexo.toUpperCase() !== "H"){
+    if(sexo !== "M" && sexo !== "H"){
         alert("Ingrese el sexo correcto - H : Hombre o M : Mujer");
         return;
     }
     let edad = parseInt(document.getElementById("edadInput").value);
+    
     console.log(edad);
     let altura = parseInt(document.getElementById("alturaInput").value);
+    if(edad <= 0){
+        alert("Ingrese una edad superior a 0");
+        return;
+    }
     console.log(altura);
     persona.push(sexo, edad, altura);
     console.log(persona);

@@ -1,21 +1,23 @@
 // 22. Se le solicita al usuario que ingrese 3 números. Realice un programa para informar 
 // si el número es múltiplo de 3, múltiplo 5, múltiplo de ambos o múltiplo de ninguno
 function FizzBuzz() {
-    let number1 = parseInt(document.getElementById('number1').value);
-    let number2 = parseInt(document.getElementById('number2').value);
-    let number3 = parseInt(document.getElementById('number3').value);
-    let sum = number1 + number2 + number3;
+    let numbers = [
+    parseInt(document.getElementById('number1').value),
+    parseInt(document.getElementById('number2').value),
+    parseInt(document.getElementById('number3').value),
+    ];
+    let sum = numbers.reduce((acc, currentValue) => acc + currentValue, 0);
 
-    let result = ' ';
+    let result = "El numero " + sum;
     if (sum % 5 == 0 && sum % 3 == 0) {
-        result = "El numero " + sum + " es multiplo de 3 y 5";
+        result += " es multiplo de 3 y 5";
     } else if (sum % 3 == 0) {
-        result = "El numero " + sum + " es multiplo de 3";
+        result += " es multiplo de 3";
     }
     else if (sum % 5 == 0) {
-        result = "El numero " + sum + " es multiplo de ";
+        result += " es multiplo de 5";
     } else {
-        result = "El numero " + sum + " no es multiplo ni de 3 ni de 5";
+        result += " no es multiplo ni de 3 ni de 5";
     }
     document.getElementById('result').innerHTML = result;
 }
@@ -201,6 +203,7 @@ function cargarPersonas(){
         alert("Ingrese una edad superior a 0");
         return;
     }
+
     console.log(altura);
     persona.push(sexo, edad, altura);
     console.log(persona);
